@@ -1,8 +1,8 @@
 {
-  "name": "Development Tools",
+  "name": "webpack-laravel-mix",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "Development Tools for Web Developers",
+  "author": "xander seregin",
   "main": "index.js",
   "scripts": {
     "dev": "npm run development",
