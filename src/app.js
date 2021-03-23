@@ -8,6 +8,8 @@ import Icons from 'uikit/dist/js/uikit-icons';
 // Подключение иконок
 UIkit.use(Icons);
 
+require("./js/plugins");
+
 import Vue from 'vue';
 
 //import FeedbackComponent from "./js/components/ExampleComponent.vue";
