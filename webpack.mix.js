@@ -43,7 +43,7 @@ mix.setPublicPath('./public')
 if (mix.inProduction()) {
 	mix.version();
 } else {
-	mix.browserSync('http://localhost:63342/webpack-laravel-mix/public/');
+	mix.browserSync('http://localhost:63342/webpack-lm-kit/public/');
 	mix.webpackConfig({
 		plugins: [
 			new LiveReloadPlugin()

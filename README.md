@@ -1,4 +1,4 @@
-# webpack-laravel-mix
+# Webpack Laravel-mix kit
 
 Clone and enter to project
 
