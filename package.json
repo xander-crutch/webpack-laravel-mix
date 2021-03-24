@@ -5,12 +5,10 @@
   "author": "xander seregin",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run development",
-    "development": "npx mix",
+    "development": "mix",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
-    "prod": "npm run production",
     "production": "mix --production"
   },
   "keywords": [],
@@ -18,12 +16,20 @@
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^7.0.3",
+    "filename-regex": "^2.0.1",
+    "html-webpack-plugin": "^5.3.1",
     "laravel-mix": "^6.0.13",
+    "laravel-mix-serve": "^2.1.0",
+    "mix-html-builder": "^0.7.2",
     "resolve-url-loader": "^3.1.2",
     "sass": "^1.32.8",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "webpack-dev-server": "^4.0.0-beta.1",
+    "webpack-livereload-plugin": "^3.0.1"
   },
   "dependencies": {
+    "alpinejs": "^2.8.2",
     "jquery": "^3.6.0",
     "uikit": "^3.6.18",
     "vue": "^2.6.12",

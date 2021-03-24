@@ -1,28 +1,51 @@
 const mix = require('laravel-mix');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+require('mix-html-builder');
+const path = require('path')
 
-mix.setPublicPath('public')
+mix.setPublicPath('./public')
 	.setResourceRoot('../') // Turns assets paths in css relative to css file
-	.sass('src/sass/app.scss', 'css/app.css')
-	.js('src/app.js', 'js/app.js').vue()
+	.sass(path.join(__dirname, 'src') + '/sass/app.scss', 'css/app.css')
+	.js('./src/app.js', 'js/app.js')
+	.vue()
 	.extract([
 		'jquery',
+		'alpinejs'
 	])
-	.webpackConfig({
-
+	// if use jQuery
+	.autoload({
+		jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]
 	})
-	.sourceMaps();
-	mix.options({
-		terser: {
-		  extractComments: false,
+	// disable if not use html
+	.html({
+		htmlRoot: path.join(__dirname, 'src') + '/index.html', // Your html root file(s)
+		output: '', // The html output folder
+		partialRoot: path.join(__dirname, 'src') + '/partials',    // default partial path
+		layoutRoot: path.join(__dirname, 'src') + 'layouts',    // default partial path
+		inject: true,
+		minify: {
+			removeComments: true
 		}
-	  });
+	})
+	.webpackConfig({
+		output: {
+			publicPath: '.'
+		}
+	})
+	.sourceMaps()
+	.options({
+		terser: {
+			extractComments: false,
+		}
+	});
 
 if (mix.inProduction()) {
 	mix.version();
 } else {
-	// Uses inline source-maps on development
+	mix.browserSync('http://localhost:63342/webpack-laravel-mix/public/');
 	mix.webpackConfig({
-		devtool: 'inline-source-map'
+		plugins: [
+			new LiveReloadPlugin()
+		],
 	});
-	mix.browserSync('127.0.0.1:8100');
 }

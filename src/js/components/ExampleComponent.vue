@@ -1,6 +1,6 @@
 <template>
 	<div>
-		ExampleComponent
+		Vue Example Component
 	</div>
 </template>
 
