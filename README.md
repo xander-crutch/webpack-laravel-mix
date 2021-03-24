@@ -3,7 +3,7 @@
 Clone and enter to project
 
 ```sh
-git clone git@github.com:xander-crutch/webpack-laravel-mix.git
+git clone https://github.com/xander-crutch/webpack-laravel-mix.git
 cd webpack-laravel-mix
 ```
 
