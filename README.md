@@ -3,8 +3,8 @@
 Clone and enter to project
 
 ```sh
-git clone https://github.com/xander-crutch/webpack-laravel-mix.git
-cd webpack-laravel-mix
+git clone https://github.com/xander-crutch/webpack-lm-kit.git
+cd webpack-lm-kit
 ```
 
 Install the dependencies and devDependencies.
