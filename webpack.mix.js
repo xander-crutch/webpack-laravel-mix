@@ -1,11 +1,12 @@
 const mix = require('laravel-mix');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 require('mix-html-builder');
+require('mix-tailwindcss');
 const path = require('path')
 
 mix.setPublicPath('./public')
 	.setResourceRoot('../') // Turns assets paths in css relative to css file
-	.sass(path.join(__dirname, 'src') + '/sass/app.scss', 'css/app.css')
+	.sass(path.join(__dirname, 'src') + '/sass/app.scss', 'css/app.css').tailwind()
 	.js('./src/app.js', 'js/app.js')
 	.vue()
 	.extract([
