@@ -1,14 +1,15 @@
 const mix = require('laravel-mix');
 require('mix-html-builder');
 require('mix-tailwindcss');
+require('laravel-mix-clean');
 const path = require('path');
-const buildPath = path.join(__dirname, 'build');
-const srcPath = path.join(__dirname, 'src');
+const buildPath = "./build";
+const srcPath = "./src";
 
 mix.setPublicPath(buildPath)
 	.setResourceRoot('../') // Turns assets paths in css relative to css file
 	.sass(srcPath + '/sass/app.scss', 'css/app.css').tailwind()
-	.js('./src/app.js', 'js/app.js').vue()
+	.js(srcPath + '/app.js', 'js/app.js').vue()
 	.extract([
 		'jquery',
 		'alpinejs'
@@ -46,7 +47,8 @@ mix.setPublicPath(buildPath)
 			buildPath + "/js/*.js",
 			buildPath + "/*.html"
 		]
-	});
+	})
+	.clean();
 
 if (mix.inProduction()) {
 	mix.version();
