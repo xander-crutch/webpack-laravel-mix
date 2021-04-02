@@ -1,14 +1,14 @@
 const mix = require('laravel-mix');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
 require('mix-html-builder');
 require('mix-tailwindcss');
-const path = require('path')
+const path = require('path');
+const buildPath = path.join(__dirname, 'build');
+const srcPath = path.join(__dirname, 'src');
 
-mix.setPublicPath('./public')
+mix.setPublicPath(buildPath)
 	.setResourceRoot('../') // Turns assets paths in css relative to css file
-	.sass(path.join(__dirname, 'src') + '/sass/app.scss', 'css/app.css').tailwind()
-	.js('./src/app.js', 'js/app.js')
-	.vue()
+	.sass(srcPath + '/sass/app.scss', 'css/app.css').tailwind()
+	.js('./src/app.js', 'js/app.js').vue()
 	.extract([
 		'jquery',
 		'alpinejs'
@@ -19,10 +19,10 @@ mix.setPublicPath('./public')
 	})
 	// disable if not use html
 	.html({
-		htmlRoot: path.join(__dirname, 'src') + '/index.html', // Your html root file(s)
+		htmlRoot: srcPath + '/index.html', // Your html root file(s)
 		output: '', // The html output folder
-		partialRoot: path.join(__dirname, 'src') + '/partials',    // default partial path
-		layoutRoot: path.join(__dirname, 'src') + 'layouts',    // default partial path
+		partialRoot: srcPath + '/partials',    // default partial path
+		layoutRoot: srcPath + 'layouts',    // default partial path
 		inject: true,
 		minify: {
 			removeComments: true
@@ -33,20 +33,23 @@ mix.setPublicPath('./public')
 			publicPath: '.'
 		}
 	})
-	.sourceMaps()
 	.options({
 		terser: {
 			extractComments: false,
 		}
-	});
+	})
+	.browserSync({
+	watch: true,
+	server: buildPath,
+	files: [
+		buildPath+"/css/*.css",
+		buildPath+"/js/*.js",
+		buildPath+"/*.html"
+	]
+});
 
 if (mix.inProduction()) {
 	mix.version();
 } else {
-	mix.browserSync('http://localhost:63342/webpack-lm-kit/public/');
-	mix.webpackConfig({
-		plugins: [
-			new LiveReloadPlugin()
-		],
-	});
+	mix.sourceMaps();
 }

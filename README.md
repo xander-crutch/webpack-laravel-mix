@@ -7,6 +7,8 @@ git clone https://github.com/xander-crutch/webpack-lm-kit.git
 cd webpack-lm-kit
 ```
 
+##Installation
+
 Install the dependencies and devDependencies.
 
 ```sh
@@ -25,7 +27,7 @@ or
 npm run development
 ```
 
-Run dev and watch, start server
+Run development and watch, start server
 
 ```sh
 npx mix watch
@@ -37,8 +39,13 @@ or
 npm run watch
 ```
 
-Run production
+Run production build
 
 ```sh
 npm run production
 ```
+## Configs
+
+Webpack config in **webpack.mix.ks**
+
+Configuration file for your project in **src/app.js**
