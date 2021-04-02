@@ -7,7 +7,7 @@ git clone https://github.com/xander-crutch/webpack-lm-kit.git
 cd webpack-lm-kit
 ```
 
-##Installation
+## Installation
 
 Install the dependencies and devDependencies.
 
