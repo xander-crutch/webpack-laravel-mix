@@ -39,14 +39,14 @@ mix.setPublicPath(buildPath)
 		}
 	})
 	.browserSync({
-	watch: true,
-	server: buildPath,
-	files: [
-		buildPath+"/css/*.css",
-		buildPath+"/js/*.js",
-		buildPath+"/*.html"
-	]
-});
+		watch: true,
+		server: buildPath,
+		files: [
+			buildPath + "/css/*.css",
+			buildPath + "/js/*.js",
+			buildPath + "/*.html"
+		]
+	});
 
 if (mix.inProduction()) {
 	mix.version();
