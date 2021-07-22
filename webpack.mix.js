@@ -47,8 +47,7 @@ mix.setPublicPath(buildPath)
 			buildPath + "/js/*.js",
 			buildPath + "/*.html"
 		]
-	})
-	.clean();
+	});
 
 if (mix.inProduction()) {
 	mix.version();
