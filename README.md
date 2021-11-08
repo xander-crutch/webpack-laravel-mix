@@ -46,6 +46,6 @@ npm run production
 ```
 ## Configs
 
-Webpack config in **webpack.mix.ks**
+Webpack config in **webpack.mix.js**
 
 Configuration file for your project in **src/app.js**
