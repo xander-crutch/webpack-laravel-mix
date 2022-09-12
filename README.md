@@ -11,8 +11,16 @@ cd webpack-lm-kit
 
 Install the dependencies and devDependencies.
 
+If you are using npm:
+
 ```sh
 npm install
+```
+
+If you are using yarn:
+
+```sh
+yarn
 ```
 
 Run development
