@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 require('mix-html-builder');
 require('mix-tailwindcss');
 require('laravel-mix-clean');
+require('laravel-mix-clean-css');
 const path = require('path');
 const buildPath = "./build";
 const srcPath = "./src";
@@ -47,10 +48,17 @@ mix.setPublicPath(buildPath)
 			buildPath + "/js/*.js",
 			buildPath + "/*.html"
 		]
+	})
+	.cleanCss({
+		level: 2,
+		format: mix.inProduction() ? false : 'beautify' // Beautify only in dev mode
 	});
 
 if (mix.inProduction()) {
 	mix.version();
 } else {
 	mix.sourceMaps();
+	mix.webpackConfig({
+		devtool: 'inline-source-map'
+	})
 }
