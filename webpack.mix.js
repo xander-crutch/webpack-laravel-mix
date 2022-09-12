@@ -11,6 +11,7 @@ mix.setPublicPath(buildPath)
 	.setResourceRoot('../') // Turns assets paths in css relative to css file
 	.sass(srcPath + '/sass/app.scss', 'css/app.css').tailwind()
 	.js(srcPath + '/app.js', 'js/app.js').vue()
+	.copyDirectory(srcPath + '/img', buildPath + '/img')
 	.extract([
 		'jquery',
 		'alpinejs'
